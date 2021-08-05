@@ -19,7 +19,7 @@
 #### *網頁端*
 1. 將 web_flows.json 匯入至 Node-Red
 2. 開啟Node-Red dashboard 並複製URL
-3. 修改Webpage/public/logintest.html檔案的window.location = "步驟2的URL"
+3. 修改logintest.html檔案的window.location = "步驟2的URL"
 4. 啟動OM2M
 5. 開啟logintest.html開始預約
 
