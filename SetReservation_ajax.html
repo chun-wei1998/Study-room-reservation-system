@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!--sweetalert-->
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <style>
+    #button_horizontal_A{
+    	width: 80px;
+        height: 60px;
+  		align-items:center;
+        margin: auto;
+    }
+  	#button_vertical_B{
+    	width: 60px;
+        height: 80px;
+  		align-items:center;
+        margin: auto;
+
+       <!-- font-size:68px; -->
+    }
+    #button_vertical_C{
+    	width: 60px;
+        height: 80px;
+  		align-items:center;
+        margin: auto;
+        <!-- font-size:68px; -->
+    }
+
+  </style>
+  <script>
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+              document.getElementById("demo").innerHTML = this.responseText;
+          }
+      };
+      xrequest = 333;
+      alert("Login=seccessful.");
+      //---------------------------------------------------------------
+      xhttp.open("POST", "/test", true);
+      xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhttp.send("mydata=" + xrequest);
+
+        function Btn_Clk(SEAT,SEAT_NAME){
+            swal({
+               title: "get a reservation of seat " + SEAT + " ?",
+               text: "Once reservation, you will not be able to reservation another seat for ten minute!",
+               buttons: true,
+               dangerMode: false,
+            })
+            .then((reservation) => {
+               if (reservation) {
+                  swal("reservation success!", {
+                  icon: "success",
+                  });
+                  //================ajax================
+                  var xhttp = new XMLHttpRequest();
+                  xhttp.onreadystatechange = function() {
+                  if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                        document.getElementById(SEAT_NAME).setAttribute("class","btn btn-default"); //change button color
+                        document.getElementById(SEAT_NAME).disabled = true; //disabled button                     
+                     }
+                  };
+                  xhttp.open("POST", "/test", true);
+                  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                  xhttp.send("mydata=get a reservation of seat " + SEAT);
+                  //xhttp.send("fname=Henry&lname=Ford");
+               }
+            });
+        }
+   </script>
+</head>
+<body>
+
+  <center><h2>Current Set State</h2>
+  <span class="label label-default">Default Label <span class="badge">7</span></span>
+  <span class="label label-success">Success Label</span>
+  <span class="label label-warning">Warning Label</span>
+  <span class="label label-danger">Danger Label</span></center>
+  <br>
+  
+  <center><button type="button" name="A" class="btn btn-success" id="button_horizontal_A" onclick="Btn_Clk('A','button_horizontal_A')">A</button></center>
+  <center>
+  <button type="button" name="B" class="btn btn-success" id="button_vertical_B" onclick="Btn_Clk('B','button_vertical_B')">B</button>
+  <button type="button" name="C" class="btn btn-success" id="button_vertical_C" onclick="Btn_Clk('C','button_vertical_C')">C</button>
+  </center>
+  <p id="demo" name="ttt"></p>
+
+</body>
+
+</html>

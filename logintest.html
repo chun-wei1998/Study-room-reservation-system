@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script language="JavaScript">
+
+        function Login() {
+            var done = 0;
+            var username = document.login.username.value;
+            username = username.toLowerCase();
+            var password = document.login.password.value;
+            password = password.toLowerCase();
+            if (username == "johost" && password == "123") { return 1; }
+            if (username == "456" && password == "456") { return 1; }
+            if (done == 0) { return 0; }
+        }
+
+        function loadDoc() {
+            var username = document.login.username.value;
+            username = username.toLowerCase();
+            var password = document.login.password.value;
+            password = password.toLowerCase();
+            if (Login() == 1) {
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("demo").innerHTML = this.responseText;
+                    }
+                };
+                
+                alert("Login=seccessful.");
+                //---------------------------------------------------------------
+                xhttp.open("POST", "/test", true);
+                xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                xhttp.send("mydata=" + $("#mydata").val());
+
+                //Login()
+                //xhttp.send("fname=Henry&lname=Ford");
+                window.location = "http://192.168.57.161:1880/ui/#!/0?socketid=vNG0_vRFaQhQQa72AAAA";
+
+            }
+            else if (Login() == 0) {
+                alert("Login=error, Something is wrong.");
+            }
+        }
+    </script>
+
+
+
+</head>
+<body>
+    <center>
+        <form name="login">
+            <table border="1" cellpadding="5" style="width: 277px;">
+                <tbody>
+                    <tr>
+                        <td colspan="2">
+                            <center>
+                                Member Login
+                            </center>
+                        </td>
+                    </tr>
+                    <tr>   <td width="51">Account     </td>
+                    <td width="194">
+                        <span style="font-family: Times New Roman; font-size: small;">
+                        <input name="username" type="text" />
+                            </span>
+                        </td>
+                    </tr>
+                    <tr><td>Password</td>
+                    <td>
+                        <span style="font-family: Times New Roman; font-size: small;">
+                        <input name="password" type="password" />
+                            </span>
+                        </td>
+                    </tr>
+                    <tr><td align="center" colspan="2">
+                        <span style="font-family: Times New Roman; font-size: small;">
+                        <span style="white-space: normal;">
+                            <input 
+                                   onclick="loadDoc()" 
+                                  value=" Login " 
+                                   type="button" />
+                                <!--   value=" Login " />    -->
+                            </span>
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <a href="註冊的網址" target="_blank">
+            <input type="button" value="registered(unwork)" />
+            </a>
+
+            
+
+            <p id="demo"></p>
+        </form>
+        
+        <img src="http://qqpublic.qpic.cn/qq_public/0/0-2611864138-3AACEDAC626F451BD840FF530E3E3E06/0?fmt=jpg&size=17&h=321&w=640&ppv=1" />
+    </center>
+
+</body>
+</html>
