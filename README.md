@@ -14,7 +14,7 @@
 
 
 
-#### *需自行搭建Node-Red及Om2m環境*
+#### *需自行搭建Node-Red及OM2M環境*
 
 #### *網頁端*
 1. 將 web_flows.json 匯入至 Node-Red
@@ -26,3 +26,10 @@
 #### *感測器端*
 1. 將 sensor_flows.json 匯入至 Node-Red
 2. 待新增...
+
+使用者登入畫面(圖源:  hololive 角巻わため)
+![login](https://user-images.githubusercontent.com/68801780/129296295-ceebbee2-a074-4b18-9344-80d238aafa6e.png)
+
+OM2M information
+![om2m_mn](https://user-images.githubusercontent.com/68801780/129296428-2bbcb8c8-8d12-45fd-ad43-662640c10adb.png)
+
