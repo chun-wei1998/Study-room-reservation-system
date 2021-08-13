@@ -12,8 +12,6 @@
 座位預約畫面
 ![reservation01](https://user-images.githubusercontent.com/68801780/128376646-47f12b19-7d5e-49c6-91c0-5def6d1edab8.png)
 
-
-
 #### *需自行搭建Node-Red及OM2M環境*
 
 #### *網頁端*
@@ -26,10 +24,3 @@
 #### *感測器端*
 1. 將 sensor_flows.json 匯入至 Node-Red
 2. 待新增...
-
-使用者登入畫面(圖源:  hololive 角巻わため)
-![login2](https://user-images.githubusercontent.com/68801780/129296750-5637e85c-616b-4a25-b620-83a32c7a433c.png)
-
-OM2M information
-![om2m_mn](https://user-images.githubusercontent.com/68801780/129296428-2bbcb8c8-8d12-45fd-ad43-662640c10adb.png)
-
